@@ -123,4 +123,113 @@
         }
         
         .click-hint {
-            font-family: "Helvetica Neue", sans
+            font-family: "Helvetica Neue", sans-serif;
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Lightbox (The Full Screen Viewer) */
+        #lightbox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 20, 0.95); /* Dark background when open */
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        #lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 50px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            font-family: "Helvetica Neue", sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Full Screen View">
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>VLO225 ARCHIVES</h1>
+            <div class="subtitle">Defense Analysis • Program Tracking • OSINT</div>
+            <a href="https://x.com/VLO225" class="social-link">Connect on X</a>
+        </header>
+
+        <article class="chart-card">
+            <div class="chart-info">
+                <h2 class="chart-title">F-35 Program Timeline & Delivery Schedule</h2>
+                <p class="chart-desc">Comprehensive breakdown of Software Blocks, Hardware Generations (TR-1/2/3), and Production Lots.</p>
+            </div>
+            <div class="chart-display" onclick="openLightbox('f35.png')">
+                <img src="f35.png" alt="F-35 Timeline Chart">
+                <div class="click-hint">Click to Expand</div>
+            </div>
+        </article>
+
+        <article class="chart-card">
+            <div class="chart-info">
+                <h2 class="chart-title">Aircraft Cost Per Flight Hour (2024 vs 2025)</h2>
+                <p class="chart-desc">DoD Component User Rates analysis. Highlights include F-35C and F-15EX cost deltas.</p>
+            </div>
+            <div class="chart-display" onclick="openLightbox('rcpfh.png')">
+                <img src="rcpfh.png" alt="RCPFH Cost Analysis">
+                <div class="click-hint">Click to Expand</div>
+            </div>
+        </article>
+
+        <article class="chart-card">
+            <div class="chart-info">
+                <h2 class="chart-title">U.S. Navy LCS Deployments (2022-2025)</h2>
+                <p class="chart-desc">Sustained deployment tracking for Independence and Freedom class variants.</p>
+            </div>
+            <div class="chart-display" onclick="openLightbox('lcs.jpeg')">
+                 <img src="lcs.jpeg" alt="LCS Deployment Timeline">
+                <div class="click-hint">Click to Expand</div>
+            </div>
+        </article>
+
+        <footer>
+            &copy; 2025 VLO225. All rights reserved.<br>
+            Data sourced from official DoD reports and open source analysis.
+        </footer>
+    </div>
+
+    <script>
+        // Simple Javascript to handle the click-to-expand feature
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imageSrc; // Set the image
+            lightbox.style.display = 'flex'; // Show the overlay
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
