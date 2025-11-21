@@ -49,9 +49,8 @@
             margin-bottom: 50px;
         }
 
-        /* Stealth aircraft outline logo */
         .logo svg {
-            height: 60px; /* Adjusted slightly for better mobile fit */
+            height: 60px;
             width: auto;
             margin-bottom: 15px;
             display: block;
